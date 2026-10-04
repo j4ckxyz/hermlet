@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermlet"
+version = "0.1.0"
+description = "Put your own Hermes agent on a Raspberry Pi: device SDK, local app API, Hermes platform plugin and tooling."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Hermlet contributors" }]
+dependencies = [
+  "websockets>=13,<17",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.urls]
+Homepage = "https://github.com/j4ckxyz/hermlet"
+
+[project.scripts]
+hermlet = "hermlet.cli:main"
+
+[tool.setuptools]
+# The Hermes plugin directory doubles as an importable package, so the
+# development server and the tests run the exact code the gateway loads.
+package-dir = { "hermlet" = "src/hermlet", "hermlet_plugin" = "plugin" }
+packages = ["hermlet", "hermlet_plugin"]
+
+[tool.setuptools.package-data]
+hermlet = ["data/*"]
+hermlet_plugin = ["plugin.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

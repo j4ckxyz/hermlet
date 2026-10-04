@@ -1,0 +1,33 @@
+name: hermlet
+label: Hermlet
+kind: platform
+version: 0.1.0
+manifest_version: 2
+api_version: 1
+description: >
+  Optional companion to the Hermlet SDK. A hermlet (a Raspberry Pi or other
+  Linux device) normally talks to Hermes through the dashboard's own API with
+  nothing installed here. This plugin adds what that API cannot do: the agent
+  can call actions on a device, reach it unprompted (cron results, messages
+  from other chats), and devices are approved with a pairing code instead of
+  the dashboard password.
+author: Hermlet contributors
+license: MIT
+tags: [gateway, hardware, raspberry-pi, iot]
+provides_tools:
+  - hermlet_devices
+  - hermlet_action
+  - hermlet_show
+optional_env:
+  - name: HERMLET_ACCESS_TOKEN
+    description: "Optional shared token every hermlet must present (set the same value on the device)"
+    prompt: "Hermlet access token (or empty)"
+    password: true
+  - name: HERMLET_ALLOWED_USERS
+    description: "Comma-separated device ids allowed without pairing (e.g. hl-0123456789abcdef)"
+    prompt: "Allowed hermlet device ids (or empty to use pairing codes)"
+    password: false
+  - name: HERMLET_ALLOW_ALL_USERS
+    description: "Allow any hermlet without pairing (development only)"
+    prompt: "Allow all hermlets? (true/false)"
+    password: false

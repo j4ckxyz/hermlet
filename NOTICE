@@ -1,0 +1,28 @@
+Hermlet is an independent community project. It is not affiliated with,
+endorsed by or supported by Nous Research. "Hermes", "Hermes Agent" and "Nous
+Research" are names of Nous Research and are used here only to describe what
+this software works with.
+
+Where ideas came from
+---------------------
+
+* Muse Gadgets (https://github.com/facebookincubator/muse-gadget-sdk, Apache
+  2.0) for the shape of the thing: a device SDK you install on a spare Linux
+  box, with a README for people and an AGENTS.md for coding agents. No code
+  from it is used.
+
+* Hermes Gadget (https://github.com/Adolanium/hermes-gadget-sdk, MIT, by the
+  Hermes Gadget SDK contributors) for how a device can plug into Hermes as a
+  platform plugin. The optional plugin in plugin/ follows the same approach:
+  each device is a direct-message chat, Hermes's own pairing codes approve it,
+  a key enrolled on first contact is proven by HMAC afterwards, and binary
+  WebSocket frames carry a four-byte channel/stream/sequence header. The code
+  here was written for this project against the same Hermes interfaces.
+
+Fetched when the app is built, each under its own license
+----------------------------------------------------------
+
+* LVGL (https://github.com/lvgl/lvgl), MIT. Includes the Montserrat fonts
+  (SIL Open Font License) and the Unscii font (public domain).
+* cJSON (https://github.com/DaveGamble/cJSON), MIT.
+* SDL2 (https://www.libsdl.org), zlib license, linked from the system.
